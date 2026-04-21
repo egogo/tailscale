@@ -11,6 +11,7 @@ RUN apt-get -qq update \
     netcat-openbsd \
     wget \
     dnsutils \
+    socat \
   > /dev/null \
   && apt-get -qq clean \
   && rm -rf \
