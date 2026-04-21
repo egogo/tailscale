@@ -11,4 +11,9 @@ export ALL_PROXY=socks5://localhost:1055/
 tailscale_ip=$(/render/tailscale ip)
 echo "Tailscale is up at IP ${tailscale_ip}"
 
+
+socat TCP-LISTEN:${REV_PORT:-8080},fork,reuseaddr,bind=0.0.0.0 TCP:${REV_HOST}:${REV_PORT:-8080} &
+echo "Proxy to ${REV_HOST}:${REV_PORT:-8080} is up"
+
+
 wait ${PID}
